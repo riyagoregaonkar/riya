@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .calculator {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    button {
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      background: #3498db;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" read-only>
+    <div class="buttons">
+      <button onclick="append Value('7')">7</button>
+      <button onclick="append Value('8')">8</button>
+      <button onclick="append Value('9')">9</button>
+      <button onclick="append Value('/')">/</button>
+      <button onclick="append Value('4')">4</button>
+      <button onclick="append Value('5')">5</button>
+      <button onclick="append Value('6')">6</button>
+      <button onclick="append Value('*')">*</button>
+      <button onclick="append Value('1')">1</button>
+      <button onclick="append Value('2')">2</button>
+      <button onclick="append Value('3')">3</button>
+      <button onclick="append Value('-')">-</button>
+      <button onclick="append Value('0')">0</button>
+      <button onclick="append Value('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="append Value('+')">+</button>
+      <button onclick="clear Display()" style="grid-column: span 4; background: #e74c3c;">Clear</button>
+    </div>
+  </div>
+
+  <script>
+    function append Value(Val) {
+      document.getElementById('display').value += Val;
+    }
+
+    function calculate() {
+      try {
+        document.getElementById('display').value = eval(document.getElementById('display').value);
+      } catch {
+        document.getElementById('display').value = 'Error';
+      }
+    }
+
+    function clear Display() {
+      document.getElementById('display').value = '';
+    }
+  </script>
+</body>
+</html>
