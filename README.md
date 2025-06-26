@@ -1,4 +1,4 @@
-# Simple Calculator
+# Calculator.html
 
 A simple calculator using HTML & CSS where you can calculate basics math opperation.Here you can write this program on VScode but I usually prefered Notepad.
 
